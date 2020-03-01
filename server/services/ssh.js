@@ -30,6 +30,7 @@ module.exports = {
                             stream.resume();
                         });
     
+                        // initial command to avoid input echoing by shell
                         sshStream.write('stty -echo\n');
 
                         rl.on('line', function (d) {
