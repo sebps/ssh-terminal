@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SSH Terminal</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/css/mdb.min.css" rel="stylesheet">
+    <!-- custom css -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
+
+    <!-- XTERM core and plugins -->
+    <script src="node_modules/xterm/lib/xterm.js"></script>
+    <script src="node_modules/xterm-addon-fit/lib/xterm-addon-fit.js"></script>
+
+    <!-- Custom script -->
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <form id="connection-form">
+            <form>
+                <h1 id="title">SSH Terminal</h1>
+                <p id="message"></p>
+                <hr>
+                <div class="form-group">
+                    <label for="host">Host</label>
+                    <input type="text" class="form-control form-control-lg" id="host">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control form-control-lg" id="user">
+                </div>
+                <div class="form-group" id="password-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control form-control-lg" id="password">
+                </div>
+                <div class="form-group" id="key-group">
+                    <label for="key">SSH key</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="key">
+                        <label class="custom-file-label" for="customFile">Key file</label>
+                    </div>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="password-mode" name="mode" class="custom-control-input" value="password" checked>
+                    <label class="custom-control-label" for="password-mode">Password</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="key-mode" name="mode" class="custom-control-input" value="key">
+                    <label class="custom-control-label" for="key-mode">Key</label>
+                </div><br><br>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Connect</button>
+            </form>
+        </form>
+        <div id="terminal" style="width:100%;height:100%;margin:0;padding:0"></div>
+    </div>
+</body>
+
+</html>

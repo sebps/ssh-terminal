@@ -1,0 +1,23 @@
+version: "3"
+services:
+    client:
+        build: ./interface         
+        networks:
+            - local
+        container_name: "ssh-terminal-interface"
+        ports:
+            - 8080:80
+        links:
+            - server
+        depends_on:
+            - server
+    server:
+        build: ./server
+        networks:
+            - local
+        container_name: "ssh-terminal-server"
+        ports:
+            - 3000:3000                 
+networks:
+    local:
+        driver: bridge
